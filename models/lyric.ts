@@ -4,8 +4,8 @@ export type TLyric  = {
   id: String
   title: String
   content: String
-  dateCreated: Date
-  dateModified: Date
+  dateCreated?: Date
+  dateModified?: Date
 }
 
 export interface ILyric extends TLyric  {}
