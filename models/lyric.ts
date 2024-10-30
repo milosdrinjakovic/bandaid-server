@@ -1,7 +1,6 @@
 import { model, Schema } from "mongoose";
 
 export type TLyric  = {
-  id: String
   title: String
   content: String
   dateCreated?: Date
@@ -11,11 +10,6 @@ export type TLyric  = {
 export interface ILyric extends TLyric  {}
 
 const lyricSchema: Schema = new Schema({
-  id: {
-    type: String,
-    required: true,
-    unique: true
-  },
   title: {
     type: String,
     required: true,

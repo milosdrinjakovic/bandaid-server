@@ -17,12 +17,13 @@ export const createLyric = async (request: Request, response: Response) => {
   try {
     const { title, content } = request.body;
     const obj: TLyric = {
-      id: randomUUID(),
       title: title,
       content: content,
       dateCreated: new Date()
     }
+    console.log({obj})
     lyric = await new Lyric(obj).save();
+    console.log("not reacthing here")
     response.status(201).json(lyric);
   } catch (error) {
     console.error("There was an error when creating a new lyric: ", error.message)
