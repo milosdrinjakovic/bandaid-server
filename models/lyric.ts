@@ -6,6 +6,7 @@ export type TLyric  = {
   scrollSpeed?: Number
   dateCreated?: Date
   dateModified?: Date
+  order?: number
 }
 
 export interface ILyric extends TLyric  {}
@@ -29,6 +30,9 @@ const lyricSchema: Schema = new Schema({
   dateModified: {
     type: Date,
   },
+  order: {
+    type: Number
+  }
 });
 
 const Lyric = model<ILyric>("Lyric", lyricSchema);
