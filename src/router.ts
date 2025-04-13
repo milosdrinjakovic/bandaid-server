@@ -1,12 +1,15 @@
 import express from "express";
-import { getLyricById, getLyrics, createLyric, updateLyric, updateLyricsOrder, deleteLyric } from "./controller";
+import { createText, createUserData, deleteText, getTextById, getTextsByUserId, getUserData, updateText, updateTextsOrder } from "./controller";
 
 export const teleprompterRouter = express.Router();
 export const teleprompterPath = "/api/teleprompter";
 
-teleprompterRouter.get("/", getLyrics);
-teleprompterRouter.post("/", createLyric);  
-teleprompterRouter.put("/", updateLyricsOrder);
-teleprompterRouter.get("/:id", getLyricById); 
-teleprompterRouter.put("/:id", updateLyric); 
-teleprompterRouter.delete("/:id", deleteLyric); 
+teleprompterRouter.get("/", getUserData);
+teleprompterRouter.post("/", createUserData);  
+
+teleprompterRouter.get("/texts", getTextsByUserId);
+teleprompterRouter.post("/texts", createText);
+teleprompterRouter.put("/texts", updateTextsOrder);
+teleprompterRouter.get("/texts/:id", getTextById); 
+teleprompterRouter.put("/texts/:id", updateText); 
+teleprompterRouter.delete("/texts/:id", deleteText); 

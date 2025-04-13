@@ -22,6 +22,7 @@ if (config.MONGODB_URI) {
     app.use(cors())
     app.use(teleprompterPath, teleprompterRouter)
 }
+
 const server = app.listen(config.PORT, () => {
     console.log(`Server running on ${config.PORT}`);
 });

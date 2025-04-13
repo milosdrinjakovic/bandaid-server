@@ -1,17 +1,23 @@
 import { model, Schema } from "mongoose";
 
-export type TLyric  = {
-  title: String
-  content: String
-  scrollSpeed?: Number
+export type TText = {
+  _id?: string
+  userId: string
+  title: string
+  content: string
+  scrollSpeed?: number
   dateCreated?: Date
   dateModified?: Date
   order?: number
 }
 
-export interface ILyric extends TLyric  {}
+export interface IText extends TText { }
 
-const lyricSchema: Schema = new Schema({
+export const TextsSchema: Schema = new Schema({
+  userId: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -35,6 +41,6 @@ const lyricSchema: Schema = new Schema({
   }
 });
 
-const Lyric = model<ILyric>("Lyric", lyricSchema);
+const Texts = model<IText>("Texts", TextsSchema);
 
-export default Lyric;
+export default Texts;
